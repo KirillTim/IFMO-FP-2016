@@ -6,9 +6,9 @@ randomIntList n from to = take n . randomRs (from, to) <$> newStdGen
 merge :: Ord a => [a] -> [a] -> [a]
 merge [] ys = ys
 merge xs [] = xs
-merge (x:xs) (y:ys) = if x <= y
-                      then x : merge xs (y:ys)
-                      else y : merge (x:xs) ys
+merge (x:xs) (y:ys)
+  | x <= y    = x : merge xs (y:ys)
+  | otherwise = y : merge(x:xs) ys
 
 mergeSort :: Ord a => [a] -> [a]
 mergeSort [] = []
