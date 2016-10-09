@@ -1,5 +1,6 @@
-{-# LANGUAGE InstanceSigs #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE InstanceSigs      #-}
+module Coin where
 newtype Coin color = Coin { getCoin :: Integer }
 
 instance Show (Coin Blue) where
@@ -19,7 +20,9 @@ instance Color Red where
 data Blue
 data Red
 
+blue :: Blue
 blue = undefined :: Blue
+red :: Red
 red  = undefined :: Red
 
 getColor :: Coin color -> color
