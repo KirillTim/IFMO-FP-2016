@@ -42,9 +42,9 @@ instance Monoid (Coin a) where
   mappend (Coin a) (Coin b) = Coin (a + b)
 
 instance Num (Coin a) where
-    (Coin a) + (Coin b) = Coin (a + b)
-    (Coin a) * (Coin b) = Coin (a * b)
-    abs (Coin a)        = Coin (abs a)
-    signum (Coin a)     = Coin (signum a)
-    fromInteger a       = Coin (fromInteger a)
-    negate (Coin a)     = Coin (negate a)
+  (Coin a) + (Coin b) = Coin (a + b)
+  (Coin a) * (Coin b) = Coin (a * b)
+  abs (Coin a)        = Coin (abs a)
+  signum (Coin a)     = Coin (signum a)
+  fromInteger a       = Coin (fromInteger a)
+  negate (Coin a)     = Coin (negate a)
