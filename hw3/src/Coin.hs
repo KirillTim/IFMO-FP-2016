@@ -1,7 +1,9 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE InstanceSigs      #-}
 module Coin where
-newtype Coin color = Coin { getCoin :: Integer }
+newtype Coin color = Coin
+  { getCoin :: Integer
+  }
 
 instance Show (Coin Blue) where
   show (Coin x) = "Blue Coin " ++ show x
