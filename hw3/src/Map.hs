@@ -7,13 +7,13 @@ import qualified Set as S
 
 
 class (Ord k, S.Set m (Entry k v)) => Map m k v where
-    emptyMap :: m (Entry k v)
-    toList   :: m (Entry k v) -> [(k, v)]
-    find     :: k -> m (Entry k v) -> Maybe v
-    insert   :: (k, v) -> m (Entry k v) -> m (Entry k v)
-    delete   :: k -> m (Entry k v) -> m (Entry k v)
-    next     :: k -> m (Entry k v) -> Maybe k
-    fromList :: [(k, v)] -> m (Entry k v)
+  emptyMap :: m (Entry k v)
+  toList   :: m (Entry k v) -> [(k, v)]
+  find     :: k -> m (Entry k v) -> Maybe v
+  insert   :: (k, v) -> m (Entry k v) -> m (Entry k v)
+  delete   :: k -> m (Entry k v) -> m (Entry k v)
+  next     :: k -> m (Entry k v) -> Maybe k
+  fromList :: [(k, v)] -> m (Entry k v)
 
 data Entry a b = Entry a b
     deriving (Show)
