@@ -1,5 +1,5 @@
 module Tree where
-import Data.Monoid
+import           Data.Monoid
 
 data Tree a = Nil | Node (Tree a) a (Tree a)
   deriving Show
@@ -27,7 +27,7 @@ del (Node t1 v t2) = Node t1 v2 t2
 
 leftistElement :: (Ord a) => Tree a -> a
 leftistElement (Node Nil v _) = v
-leftistElement (Node t1 _ _) = leftistElement t1
+leftistElement (Node t1 _ _)  = leftistElement t1
 
 find :: (Ord a) => Tree a -> a -> Maybe (Tree a)
 find Nil _ = Nothing
@@ -44,11 +44,11 @@ fromList (h:t) = from (Node Nil h Nil) t
     from = foldl insert
 
 toList::Tree a->[a]
-toList Nil = []
+toList Nil          = []
 toList node@Node {} = foldr (:) [] node
 
 instance Foldable Tree where
-  foldMap f Nil = mempty
+  foldMap f Nil            = mempty
   foldMap f (Node t1 v t2) = foldMap f t1 <> f v <> foldMap f t2
 
 instance (Ord a) => Monoid (Tree a) where
