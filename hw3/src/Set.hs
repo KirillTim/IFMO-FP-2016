@@ -22,4 +22,4 @@ instance (Eq a, Ord a) => Set T.Tree a where
     insert x   = (<>) $ fromList [x]
     delete x t = T.delete t x
     next   x   = F.find (> x)
-    fromList = T.fromList
+    fromList   = T.fromList
