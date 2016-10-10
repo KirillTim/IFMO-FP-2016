@@ -16,7 +16,7 @@ class (Ord k, S.Set m (Entry k v)) => Map m k v where
   fromList :: [(k, v)] -> m (Entry k v)
 
 data Entry a b = Entry a b
-    deriving (Show)
+  deriving (Show)
 
 fst' :: Entry a b -> a
 fst' (Entry a _) = a
@@ -29,7 +29,7 @@ entryFromPair :: (a,b) -> Entry a b
 entryFromPair (f,s) = Entry f s
 
 instance Eq a => Eq (Entry a b) where
-    Entry x _ == Entry y _ = x == y
+  Entry x _ == Entry y _ = x == y
 
 instance Ord a => Ord (Entry a b) where
   Entry x _ `compare` Entry y _ = x `compare` y
