@@ -15,6 +15,10 @@ oneOrMore = some
 spaces :: Parser String
 spaces = zeroOrMore (satisfy C.isSpace)
 
+-- .
+dot :: Parser Char
+dot  = satisfy $ not . C.isSpace 
+
 ident :: Parser String
 ident = (++) <$> oneOrMore (satisfy C.isAlpha) <*> zeroOrMore (satisfy C.isAlphaNum)
 
