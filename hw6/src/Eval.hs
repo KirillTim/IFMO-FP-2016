@@ -9,7 +9,7 @@ data Expr = Const Integer
 
 eval :: Expr -> Reader (M.Map String Integer) (Maybe Integer)
 eval (Const n) = return $ Just n
---eval (Var v)   = return $ maybe Nothing id (M.lookup v ask)
+eval (Var v)   = ask >>= lift . M.lookup v --return $ maybe Nothing id (M.lookup v ask)
 --eval (Sum left right) = liftM2 (+) (eval left) (eval right)
 eval (Sum x y) =  eval x >>= (<$> eval y) . liftM2 (+)
 --eval (Assign name val expr) = return $ local (M.insert name val) (eval expr)
