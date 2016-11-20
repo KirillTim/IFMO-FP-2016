@@ -17,14 +17,15 @@ splitToPair delim str = (head arr, T.unwords $ tail arr)
   where arr = T.splitOn delim str
 
 getProperties :: T.Text -> IO [(T.Text, T.Text)]
-getProperties fileName = if T.null fileName then return []
-  else fmap (splitToPair "=") <$> readFileLines fileName
+getProperties fileName
+  | T.null fileName = return []
+  | otherwise       = fmap (splitToPair "=") <$> readFileLines fileName
 
 listToIOArray :: [a] -> IO (IOArray Int a)
 listToIOArray l = newListArray (0, length l - 1) l
 
 
-propToStr :: (T.Text, T.Text) -> [Char]
+propToStr :: (T.Text, T.Text) -> String
 propToStr p = T.unpack (fst p) ++ "=" ++ T.unpack (snd p)
 
 action :: IOArray Int (T.Text, T.Text) -> IO ()
