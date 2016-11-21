@@ -1,5 +1,4 @@
 module Main where
-
+import Task1 (main')
 main :: IO ()
-main = do
-  putStrLn "hello world"
+main = main'

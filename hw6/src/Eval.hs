@@ -12,8 +12,8 @@ data Expr = Const Integer
 eval :: Expr -> Reader (M.Map String Integer) (Maybe Integer)
 eval (Const n)              = return $ Just n
 eval (Var v)                = ask >>= \env -> return $ M.lookup v env
-eval (Sum x y)              =  eval x >>= (<$> eval y) . liftM2 (+)
-eval (Mul x y)              =  eval x >>= (<$> eval y) . liftM2 (*)
+eval (Sum x y)              = eval x >>= (<$> eval y) . liftM2 (+)
+eval (Mul x y)              = eval x >>= (<$> eval y) . liftM2 (*)
 eval (Assign name val expr) = local (M.insert name val) (eval expr)
 
 expr1 = Const 10 `Sum` ("x" `Assign` 2 $ Var "x")
