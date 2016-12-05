@@ -17,4 +17,19 @@ executable hw9
   hs-source-dirs:      src
   main-is:             Main.hs
   default-language:    Haskell2010
-  build-depends:       base >= 4.7 && < 5
+  build-depends:       base >= 4.7 && < 5,
+                       dlist,
+                       containers,
+                       criterion
+  ghc-options:         -O2 -threaded -rtsopts -with-rtsopts=-N
+
+benchmark lists-speed
+  type:                exitcode-stdio-1.0				  
+  hs-source-dirs:      src
+  main-is:             Main.hs
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5,
+                       dlist,
+                       containers,
+                       criterion
+  ghc-options:         -O2 -threaded -rtsopts -with-rtsopts=-N
